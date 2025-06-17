@@ -194,3 +194,5 @@ cython_debug/
 .cursorindexingignore
 
 notebooks/catboost_info
+logs
+artifact
