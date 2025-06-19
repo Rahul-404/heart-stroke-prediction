@@ -122,8 +122,6 @@ class DataValidation:
 
             logging.info(f"{n_drifted_features}/{n_features} drift detected.")
 
-            # print(f"-- {json_report['metrics'][0]['result']['dataset_drift']}")
-
             drift_status = json_report["metrics"][0]['result']['dataset_drift']
             return drift_status
         except Exception as e:
