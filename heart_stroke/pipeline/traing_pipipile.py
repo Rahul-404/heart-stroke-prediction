@@ -2,14 +2,17 @@
 from heart_stroke.components.data_ingestion import DataIngestion
 from heart_stroke.components.data_validation import DataValidation
 from heart_stroke.components.data_transformation import DataTransformation
+from heart_stroke.components.model_trainer import ModelTrainer
 
 from heart_stroke.entity.config_entity import (DataIngestionConfig,
                                                DataValidationConfig,
-                                               DataTransformationConfig)
+                                               DataTransformationConfig,
+                                               ModelTrainerConfig)
 
 from heart_stroke.entity.artifact_entity import (DataIngestionArtifact,
                                                  DataValidationArtifact,
-                                                 DataTransformationArtifact)
+                                                 DataTransformationArtifact,
+                                                 ModelTrainerArtifact)
 
 from heart_stroke.exception import HeartStrokeException
 from heart_stroke.logger import logging
@@ -20,6 +23,7 @@ class TrainPipeline:
         self.data_ingestion_config = DataIngestionConfig()
         self.data_validation_config = DataValidationConfig()
         self.data_transformation_config = DataTransformationConfig()
+        self.model_trainer_config = ModelTrainerConfig()
 
     def start_data_ingestion(self) -> DataIngestionArtifact:
         """
@@ -92,6 +96,23 @@ class TrainPipeline:
             return data_transformation_artifact
         except Exception as e:
             raise HeartStrokeException(e, sys) from e
+        
+    def start_model_trainer(
+        self, data_transformation_artifact: DataTransformationArtifact
+    ) -> ModelTrainerArtifact:
+        """
+        This method of TrainPipeline class is responsible for starting model trainer component
+        """
+        try:
+            model_trainer = ModelTrainer(
+                data_transformation_artifact=data_transformation_artifact,
+                model_trainer_config=self.model_trainer_config,
+            )
+            model_trainer_artifact = model_trainer.initiate_model_trainer()
+            return model_trainer_artifact
+
+        except Exception as e:
+            raise HeartStrokeException(e, sys)
 
     def run_pipeline(self) -> None:
         try:
@@ -103,7 +124,10 @@ class TrainPipeline:
                 data_ingestion_artifact=data_ingestion_artifact,
                 data_validation_artifact=data_validation_artifact
             )
-            logging.info(f"Training Pipeline is complete. {data_transformation_artifact}")
+            model_trainer_artifact = self.start_model_trainer(
+                data_transformation_artifact=data_transformation_artifact
+            )
+            logging.info(f"Training Pipeline is complete. {model_trainer_artifact}")
 
         except Exception as e:
             raise HeartStrokeException(e, sys)
