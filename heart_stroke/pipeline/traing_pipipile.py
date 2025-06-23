@@ -4,18 +4,21 @@ from heart_stroke.components.data_validation import DataValidation
 from heart_stroke.components.data_transformation import DataTransformation
 from heart_stroke.components.model_trainer import ModelTrainer
 from heart_stroke.components.model_evaluation import ModelEvaluation
+from heart_stroke.components.model_pusher import ModelPusher
 
 from heart_stroke.entity.config_entity import (DataIngestionConfig,
                                                DataValidationConfig,
                                                DataTransformationConfig,
                                                ModelTrainerConfig,
-                                               ModelEvaluationConfig)
+                                               ModelEvaluationConfig,
+                                               ModelPusherConfig)
 
 from heart_stroke.entity.artifact_entity import (DataIngestionArtifact,
                                                  DataValidationArtifact,
                                                  DataTransformationArtifact,
                                                  ModelTrainerArtifact,
-                                                 ModelEvaluationArtifact)
+                                                 ModelEvaluationArtifact,
+                                                 ModelPusherArtifact)
 
 from heart_stroke.exception import HeartStrokeException
 from heart_stroke.logger import logging
@@ -28,6 +31,7 @@ class TrainPipeline:
         self.data_transformation_config = DataTransformationConfig()
         self.model_trainer_config = ModelTrainerConfig()
         self.model_evaluation_config = ModelEvaluationConfig()
+        self.model_pusher_config = ModelPusherConfig()
 
     def start_data_ingestion(self) -> DataIngestionArtifact:
         """
@@ -136,6 +140,23 @@ class TrainPipeline:
             return model_evaluation_artifact
         except Exception as e:
             raise HeartStrokeException(e, sys)
+        
+    def start_model_pusher(
+            self,
+            model_trainer_artifact: ModelTrainerArtifact,
+    ):
+        """ 
+        This method of TrainPipeline class is responsible for starting model pusher component
+        """
+        try:
+            model_pusher = ModelPusher(
+                model_trainer_artifact=model_trainer_artifact,
+                model_pusher_config=self.model_pusher_config
+            )
+            model_pusher_artifact = model_pusher.initiate_model_pusher()
+            return model_pusher_artifact
+        except Exception as e:
+            raise HeartStrokeException(e, sys)
 
     def run_pipeline(self) -> None:
         try:
@@ -154,7 +175,13 @@ class TrainPipeline:
                 data_ingestion_artifact=data_ingestion_artifact,
                 model_trainer_artifact=model_trainer_artifact
             )
-            logging.info(f"Training Pipeline is complete. {model_evaluation_artifact}")
+            if not model_evaluation_artifact.is_model_accepted:
+                logging.info(f"Model not accepted.")
+                return None
+            model_pusher_artifact = self.start_model_pusher(
+                model_trainer_artifact=model_trainer_artifact
+            )
+            logging.info(f"Training Pipeline is complete. {model_pusher_artifact}")
 
         except Exception as e:
             raise HeartStrokeException(e, sys)
