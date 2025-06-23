@@ -19,7 +19,7 @@ class HeartData:
             heart_disease: int,
             ever_married: str,
             work_type: str,
-            Resident_type: str,
+            Residence_type: str,
             avg_glucose_level: float,
             bmi: float,
             smoking_status: str,
@@ -32,7 +32,7 @@ class HeartData:
             self.heart_disease = heart_disease
             self.ever_married = ever_married
             self.work_type = work_type
-            self.Resident_type = Resident_type
+            self.Residence_type = Residence_type
             self.avg_glucose_level = avg_glucose_level
             self.bmi = bmi
             self.smoking_status = smoking_status
@@ -62,7 +62,7 @@ class HeartData:
                 "heart_disease": [self.heart_disease],
                 "ever_married": [self.ever_married],
                 "work_type": [self.work_type],
-                "Residence_type": [self.Resident_type],
+                "Residence_type": [self.Residence_type],
                 "avg_glucose_level": [self.avg_glucose_level],
                 "bmi": [self.bmi],
                 "smoking_status": [self.smoking_status],
