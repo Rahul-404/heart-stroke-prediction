@@ -6,4 +6,4 @@ dependencies:
   - python=3.8.20
   - pip
   - pip:
-      - -r requirements1.txt
+      - -r requirements_dev.txt
