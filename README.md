@@ -88,7 +88,7 @@ This project focuses on building a predictive model to estimate the risk of stro
 - **Visualization:** Matplotlib, Seaborn, Plotly
 - **Data Validation:** Evidently
 - **RESTful API:** FastAPI
-- **Model Interpretability:** SHAP
+<!-- - **Model Interpretability:** SHAP -->
 
 ---
 
@@ -136,5 +136,6 @@ The model will be deployed as a **REST API** using **FastAPI**, hosted on **AWS 
 ## 📧 Contact
 
 For questions or collaboration:
-**Your Name** – [rahulshelke3399@gmail.com](mailto:rahulshelke3399@gmail.com)
-[LinkedIn](https://www.linkedin.com/in/rahulshelke981) | [GitHub](https://github.com/R  ahul-404)
+
+[rahulshelke3399@gmail.com](mailto:rahulshelke3399@gmail.com) |
+[LinkedIn](https://www.linkedin.com/in/rahulshelke981) | [GitHub](https://github.com/Rahul-404)
