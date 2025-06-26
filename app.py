@@ -11,6 +11,8 @@ from heart_stroke.constant.application import APP_HOST, APP_PORT
 from heart_stroke.pipeline.prediction_pipeline import HeartData, HeartStrokeClassifier
 from heart_stroke.pipeline.traing_pipipile import TrainPipeline
 
+from datetime import datetime
+
 app= FastAPI()
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
@@ -57,7 +59,11 @@ class DataForm:
 async def index(request: Request):
 
     return templates.TemplateResponse(
-        "index.html", {"request": request, "context": "Rendering"}
+        "index.html", {
+            "request": request, 
+            "context": "Rendering",
+            "current_year": datetime.now().year
+            }
     )
 
 @app.get("/train")
@@ -67,7 +73,7 @@ async def trainRouteClient():
 
         train_pipeline.run_pipeline()
 
-        return Response("Training successful !!")
+        return Response("Training successful !!!")
 
     except Exception as e:
         return Response(f"Error Occurred! {e}")
@@ -99,7 +105,11 @@ async def predictRouteClient(request: Request):
 
         return templates.TemplateResponse(
             "index.html",
-            {"request": request, "context": stroke_value},
+            {
+                "request": request, 
+                "context": stroke_value,
+                "current_year": datetime.now().year
+            },
         )
 
     except Exception as e:
