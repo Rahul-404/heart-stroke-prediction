@@ -7,7 +7,7 @@ VERSION = "0.0.1"
 AUTHOR = "Rahul Shelke",
 DESCRIPTION  = """The goal of this project is to provide a data-driven approach for early detection of stroke risks, 
                 which can potentially assist healthcare professionals in prioritizing patient care and preventive measures."""
-REQUIREMENT_FILE_NAME = "requirements1.txt"
+REQUIREMENT_FILE_NAME = "requirements.txt"
 HYPHEN_E_DOT = "-e ."
 
 def get_requirements_list() -> List[str]:
