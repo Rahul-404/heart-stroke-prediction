@@ -5,21 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Heart Stroke Prediction</title>
     <link rel="stylesheet" href="{{ url_for('static', path='/css/style.css')}}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
   </head>
   <body>
-    <!-- <nav class="navbar navbar-light bg-light static-top">
-        <div class="container-fluid">
-           <a class="navbar-brand" href="https://ineuron.ai"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIkAAAAlCAMAAABBJDpuAAAAVFBMVEX/fgD/iQA7NzIyMjMnNYInNYEnNYInNYEzMzInNYQnNYETJzsnNYIwN1wxMjNoTis4O1YrNm0xOF47PE9DP0dEQEVpTVkAJJ4nNYEOLJHJbiAzMzOmmmHRAAAAFnRSTlOh/vu+986oen9fP2UqEzQkFAIDAAEEILVBJQAAA3FJREFUWMPNmO2WoyAMQG0VBARtdVRs3/89NwkgaF1rd2aOm18tIrnkgwSz7n+R7LcV1ELkeS7E7VySRlyfQXJhTiO55c+liP4cEuH1X8E7gaV+S3Jv2zYZ/Vr+/Sdx2vP6doc/fSPcf/GOpLSFVXFUW8t+giRP47TOd60yk1hbxIhSP0ACKPWrvw7YBIT/lcQY84G3Wk17ugWQfg5UsQJpjflKSLQi7xTWyk0SXTJ4VnB5D1yccxmp4Z+mX5KGNS+SPXVNll0ulyxL0wYmloBB6zL/MpCoAgjAJiUM6w0SboMwPUdRogvNKcNM3smFdRvEcJJkKcflQa+X0pNIfBGW0zKqjyQtw4VLKQlI7ZLgdrRNSZDjMQx2GB4pCkxkCrfGWUTJ0Egan6muCHgJCUwtnCk0mrJ9Q8K5LUqtdSfynkAedhynaRqngVDaXLiJEAzkFkM71IuIlWRYtSQpbXSZDvQ7JPCei9brs+oaABkn74LRIkpFaVxGnzjvIxTYREOoEwn5r01JTDRTcO87Eu3zNUeTPKZpjrIRrNIDCjzALbPk7LJMIokOEQu2K7yKQAKvFDF9pVe0R+LGb7h1MMkw2ijjA/1zhSfSphvEAChXJEhAqwYStIJWXnTpvbdH4hTUwSQ2JRmQpILDLYbB7J41SYiLcNozu5Z3JMo7RxBJahI7WSRByCMkqJt9hySESbVJcvmARJGFExJmdBSl2oM2+T4JLWfgaGFptizlPUm1FydHSdyZ7UnS4ySph2kS0kJrkvr5NJg7dnrJnfxgxPozRPGtkyPNOxtaiDvbIAF9L+5B5zTI2BwlwXmM+U3zReav3o0F8oUEFFZ42McDZYomOUziFmezgWyo251Uc1nyKJol7URCEvIYUEbHYaEGQi9C9egwCdVfHwiaajfjKMUcHcRacCylhWJbJDfq47EEDhYqoIWjHnwDXZPpPiChPQelLU+Cbm4w50FmYgkvFwpiWwCC/Um/SLcNElOC9RVj6qWpCiEMvRUK4zLpdKmPw8rVldy/qxjn60wLrVLWJIPLiZJRr3fsvnOHPvare+lB93tb37T20D82jqOt+zNuXhuNvNhp7X+PpHb3rvV9R5xjE2SpyCN9ffQO+GtWIZr5Xnytz4gTMIRYfys47/uJEXny/aQ/95tSUwmU+uRvSp/IHzQqZYpYrQmxAAAAAElFTkSuQmCC" /></a>
+
+    <!-- Header with About Me -->
+    <header class="bg-dark text-white py-3 mb-4">
+      <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+        <div>
+          <h2>Heart Stroke Prediction</h2>
+          <p class="mb-0">Created by Rahul Shelke — Passionate Data Scientist | ML & AI Enthusiast</p>
         </div>
-     </nav> -->
-    <section>
-        <div class="container-fluid">
-            <div class="container">
-                <form action="/" method="post">
-                    <h1>     
-                    <legend>Heart Stroke Prediction</legend>
-                    </h1>
+        <div>
+          <a href="#footer" class="btn btn-outline-light">Connect With Me</a>
+        </div>
+      </div>
+    </header>
+
+    <!--<section>
+      <div class="container-fluid">
+        <div class="container">
+          <form action="/" method="post">
+             <h1><legend>Heart Stroke Prediction</legend></h1>
                     <div class="mb-3">
                         <label class="form-label">Patient's Gender</label>
                         <select class="form-control" name="gender" placeholder="Enter Patient's Gender"
@@ -147,23 +154,154 @@
                     <div class="mb-3">
                         <input class="btn btn-primary" type="submit" value="Predict" required />
                     </div>
-        
-                </form>
-            </div>
-            <div class="text-center text-black">
-                <h2>Prediction : {{context}} </h2>
-            </div>
+          </form> 
         </div>
+        <div class="text-center text-black">
+          <h2>Prediction : {{context}} </h2>
+        </div>
+      </div>
+    </section>-->
+
+    <section>
+      <div class="container">
+        <form action="/" method="post">
+          <div class="row g-3">
+            <!-- Row 1 -->
+            <div class="col-md-6">
+              <label class="form-label">Patient's Gender</label>
+              <select class="form-control" name="gender" required>
+                <option selected disabled value="">Select your Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Patient's Age</label>
+              <input class="form-control" type="number" name="age" placeholder="Enter Patient's age" min="0" max="100" />
+            </div>
+
+            <!-- Row 2 -->
+            <div class="col-md-6">
+              <label class="form-label">HyperTension [Yes = 1 : No = 0]</label>
+              <select class="form-control" name="hypertension" required>
+                <option selected disabled value="">Hyper Tension</option>
+                <option value="0">Yes</option>
+                <option value="1">No</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Heart Disease [Yes = 1 : No = 0]</label>
+              <select class="form-control" name="heart_disease" required>
+                <option selected disabled value="">Heart Disease</option>
+                <option value="0">Yes</option>
+                <option value="1">No</option>
+              </select>
+            </div>
+
+            <!-- Row 3 -->
+            <div class="col-md-6">
+              <label class="form-label">Ever Married?</label>
+              <select class="form-control" name="ever_married" required>
+                <option selected disabled value="">Are you Married?</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Work Type</label>
+              <select class="form-control" name="work_type" required>
+                <option selected disabled value="">Work Type</option>
+                <option value="children">Children</option>
+                <option value="Govt_job">Government Job</option>
+                <option value="Never_worked">Never Worked</option>
+                <option value="Private">Private</option>
+                <option value="Self-employed">Self-employed</option>
+              </select>
+            </div>
+
+            <!-- Row 4 -->
+            <div class="col-md-6">
+              <label class="form-label">Residence Type</label>
+              <select class="form-control" name="Residence_type" required>
+                <option selected disabled value="">Select Residence Type</option>
+                <option value="Urban">Urban</option>
+                <option value="Rural">Rural</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Smoking Status</label>
+              <select class="form-control" name="smoking_status" required>
+                <option selected disabled value="">Select Smoking Status</option>
+                <option value="formerly smoked">Formerly smoked</option>
+                <option value="never smoked">Never smoked</option>
+                <option value="smokes">Smokes</option>
+                <option value="Unknown">Unknown</option>
+              </select>
+            </div>
+
+            <!-- Row 5 -->
+            <div class="col-md-6">
+              <label class="form-label">Avg Glucose Level [50-300]</label>
+              <input class="form-control" type="number" name="avg_glucose_level" placeholder="Glucose Level" min="50" max="300" />
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Body Mass Index [10-100]</label>
+              <input class="form-control" type="number" name="bmi" placeholder="Enter BMI" min="10" max="100" />
+            </div>
+
+            <!-- Submit -->
+            <div class="col-12 text-center mt-3">
+              <input class="btn btn-primary px-4" type="submit" value="Predict" />
+              <button class="btn btn-secondary px-4" type="button" onclick="clearForm()">Clear Output</button>
+            </div>
+          </div>
+        </form>
+
+        <!-- Prediction Output -->
+        <div class="text-center text-black mt-4">
+          <h2 id="prediction-output">Prediction : {{ context }}</h2>
+        </div>
+      </div>
     </section>
+    <!-- Footer with Social Links -->
+    <footer id="footer" class="bg-light text-center text-black py-4 mt-5">
+      <div class="container">
+        <h5>Connect With Me</h5>
+        <div class="social-icons">
+          <a href="https://github.com/Rahul-404" target="_blank" title="GitHub"><i class="bi bi-github"></i> GitHub</a>
+          <a href="https://linkedin.com/in/rahulshelke981/" target="_blank" title="LinkedIn"><i class="bi bi-linkedin"></i> LinkedIn</a>
+          <a href="https://youtube.com/yourchannel" target="_blank" title="YouTube"><i class="bi bi-youtube"></i> YouTube</a>
+          <a href="https://medium.com/@yourusername" target="_blank" title="Medium"><i class="bi bi-medium"></i> Medium</a>
+        </div>
+        <p class="mt-2">© {{ current_year }} Rahul Shelke — All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <!-- JS Scripts -->
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
-    <script type="text/javascript">
-        $(".input").focus(function(){
-            $(this).parent().addClass("focus");
-        }).blur(function(){
-            if($(this).val() === ''){
-                $(this).parent().removeClass("focus");
+    <script>
+        function clearForm() {
+            // Reset form fields
+            document.querySelector('form').reset();
+
+            // Set prediction text back to "Rendering"
+            const predictionElement = document.querySelector("#prediction-output");
+            if (predictionElement) {
+            predictionElement.innerText = "Prediction : Rendering";
             }
-        })
+        }
+
+      $(".input").focus(function(){
+        $(this).parent().addClass("focus");
+      }).blur(function(){
+        if($(this).val() === ''){
+          $(this).parent().removeClass("focus");
+        }
+      })
     </script>
   </body>
 </html>
