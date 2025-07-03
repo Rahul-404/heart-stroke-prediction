@@ -129,7 +129,7 @@ The model will be deployed as a **REST API** using **FastAPI**, hosted on **AWS 
 4. Model artifacts loaded from **AWS S3** during container startup
 
 
-![Deployment-Architecture]()
+![Deployment-Architecture](/docs/AWS-CI:CD.jpg)
 
 ---
 
