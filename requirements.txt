@@ -17,4 +17,8 @@ fastapi
 uvicorn
 jinja2
 python-multipart
+seaborn
+xgboost
+lightgbm
+catboost
 -e .
