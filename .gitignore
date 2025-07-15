@@ -201,6 +201,6 @@ artifact
 #notebooks/03_Data_Cleaning.ipynb 
 #notebooks/04_Feature_Engineering.ipynb
 #notebooks/05_Feature_Selection.ipynb 
-notebooks/06_Model_Selection.ipynb
+# notebooks/06_Model_Selection.ipynb
 notebooks/07_Hyperparameter_Tunning.ipynb
 notebooks/08_Model_Interpretation.ipynb
