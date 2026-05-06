@@ -1,0 +1,14 @@
+name: ML Training CI
+
+on:
+  push:
+    branches:
+      - feat/ml-training
+    paths:
+      - 'src/**'
+
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'src/**'

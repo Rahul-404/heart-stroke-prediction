@@ -1,0 +1,9 @@
+name: ML Training CD
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
