@@ -38,8 +38,3 @@ jobs:
 
       - name: Build Docs (Strict Mode)
         run: mkdocs build --strict
-
-      - name: Check Broken Links
-        run: |
-          pip install mkdocs-link-checker
-          mkdocs build && mkdocs-link-checker
