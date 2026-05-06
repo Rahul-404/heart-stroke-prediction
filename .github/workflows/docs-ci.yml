@@ -36,6 +36,7 @@ jobs:
 
       - name: Install dependencies
         run: |
+          pip install --upgrade pip
           pip install mkdocs-material[imaging] mkdocstrings[python] pymdown-extensions
 
       - name: Build Docs (Strict Mode)
