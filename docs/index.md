@@ -108,6 +108,8 @@ At a high level, the system consists of:
     * Model performance tracking
     * Data drift and prediction drift detection
 
+![architecture](../flowcharts/end-to-end-ml-architectures-heart-stroke-prediction.drawio.svg)
+
 ---
 
 ## What This Project Demonstrates
