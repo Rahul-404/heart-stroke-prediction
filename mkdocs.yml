@@ -60,11 +60,11 @@ nav:
   - Getting Started:
       - Local Setup: 00_getting_started/local_setup.md
 
-  - Problem:
+  - Problem Framing:
       - Overview: 01_problem/problem_statement.md
       - Success Criteria: 01_problem/success_criteria.md
 
-  - Data:
+  - Data Foundation:
       - Data Overview: 02_data/data_overview.md
       - Data Schema: 02_data/schema.md
       - Data Quality & Bias: 02_data/data_quality.md
